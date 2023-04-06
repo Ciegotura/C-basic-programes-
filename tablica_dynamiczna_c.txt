@@ -1,0 +1,24 @@
+          #include <stdio.h>
+    #include <stdlib.h>
+
+    int main()
+    {
+        //printf("Hello world!\n");
+        int rozmiar;
+        int* tab;
+        printf("Podej rozmiar tablicy!\n");
+        scanf("%d",&rozmiar);
+        tab = (int*)malloc(rozmiar*sizeof(int));
+        printf("elementy tablicy\n");
+        for(int i =0;i<rozmiar;i++)
+        {
+            *(tab+i)=i+1;
+            printf("%d\n",*(tab+i));
+        }
+        free(tab);//zwalniam tablice
+
+
+
+
+        return 0;
+    }

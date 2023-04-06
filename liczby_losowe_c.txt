@@ -1,0 +1,64 @@
+       #include <stdio.h>
+    #include <stdlib.h> // niezbędne dla funkcji srand i rand
+    #include <time.h> // niezbędne dla funkcji time
+
+    int suma_tab(int tab[],int rozmiar);
+    int naj_w_element_tablicy(int tablica[],int rozmiar);
+    int naj_m_element_tablicy(int tablica[],int rozmiar);
+
+
+
+    int main()
+    {
+    const int rozmiar = 10;
+    int tablica[rozmiar];
+    int seed;
+        time_t czas;
+    seed = time(&czas);
+        srand(seed);
+        for(int i = 0;i<rozmiar;i++)
+        {
+            tablica[i]= rand() % 10+1;
+        }
+       for(int i = 0;i<rozmiar;i++)
+    printf("%d\n",tablica[i]);
+    int suma;
+    suma = suma_tab(tablica,rozmiar);
+    printf("Wynik sumy tablicy %d\n",suma);
+    printf("najwienkszy element tablicy
+    %d\n",naj_w_element_tablicy(tablica,rozmiar));
+    printf("najmniejszy element tablicy
+    %d\n",naj_m_element_tablicy(tablica,rozmiar));
+    return 0;
+
+
+    }
+
+    int suma_tab(int tab[],int rozmiar){
+    int wynik=0;
+
+    for(int i =0;i<rozmiar;i++){
+        wynik+=tab[i];
+    }
+    return wynik;
+    }
+
+    int naj_w_element_tablicy(int tablica[],int rozmiar)
+    {
+        int pierwszy_element = tablica [0];
+    for(int i =0;i<rozmiar;i++){
+    if(pierwszy_element<tablica[i])
+        pierwszy_element=tablica[i];
+    }
+        return pierwszy_element;
+    }
+
+    int naj_m_element_tablicy(int tablica[],int rozmiar)
+    {
+            int pierwszy_element = tablica [0];
+    for(int i =0;i<rozmiar;i++){
+    if(pierwszy_element>tablica[i])
+        pierwszy_element=tablica[i];
+    }
+        return pierwszy_element;
+    }

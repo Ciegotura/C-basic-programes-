@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int A;
+int B;
+int C;
+
+int main()
+{
+    printf("Podaj A, B, C,\n");
+    scanf("%d", &A);
+    scanf("%d", &B);
+    scanf("%d", &C);
+
+    printf("%dx^2+%dx+%d",A,B,C);
+    float delta;
+    delta = B*B-4*A*C;
+    printf("\n");
+    printf("Delta wynosi: %d", delta);
+    if(delta>0){
+    float y1;
+    float y2;
+    y1= ((-B)- sqrt(delta))/2*A;
+    y2= ((-B)+ sqrt(delta))/2*A;
+    printf("\n");
+    printf("Rozwiazanie: x1=%d, x2=%d", y1,y2);
+    };
+
+
+
+
+
+
+
+
+
+    return 0;
+
+}

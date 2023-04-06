@@ -1,0 +1,71 @@
+        #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+struct LepszaTablica
+{
+
+    int rozmiar;
+    int* tab;
+
+};
+
+void pokaz_strukture(struct LepszaTablica aa);
+int* alokacja_tablicy(int rozmiar, int *tab);
+void wypelnij_lepsza_tablice(int* tab, int rozmiar);
+void pokaz_lepsza_tablice(int* tab, int rozmiar);
+
+int main()
+{
+    int seed;
+    time_t czas;
+    seed = time(&czas);
+    srand(seed);
+     struct LepszaTablica lepszatablica;
+     printf("podaj rozmiar tablicy:\n");
+     scanf("%d",&lepszatablica.rozmiar);
+     printf("Podany rozmiar lepszej tablicy: %d\n",lepszatablica.rozmiar);
+     lepszatablica.tab = alokacja_tablicy(lepszatablica.rozmiar,lepszatablica.tab);
+     wypelnij_lepsza_tablice(lepszatablica.tab,lepszatablica.rozmiar);
+     pokaz_lepsza_tablice(lepszatablica.tab,lepszatablica.rozmiar);
+
+
+
+
+
+
+    return 0;
+}
+
+void wypelnij_lepsza_tablice(int* tab, int rozmiar){
+
+    for(int i =0;i<rozmiar;i++)
+    {
+        *(tab+i)=(5 + rand() % (11-5+1)); //wypelnienie tablicy
+        //wartosciami od 4 do 11
+    }
+
+
+}
+void pokaz_lepsza_tablice(int* tab, int rozmiar){
+
+    for(int i =0;i<rozmiar;i++)
+    {
+        printf("%d\n",*(tab+i));
+    }
+
+
+}
+int* alokacja_tablicy(int rozmiar, int *tab){
+
+ tab = (int*)malloc(rozmiar*sizeof(int));
+
+ return tab;
+}
+
+
+void pokaz_strukture(struct LepszaTablica aa){
+aa.rozmiar = 1;
+printf("Pokaz wartosc zmiennej rozmiar: %d\n",aa.rozmiar);
+
+}

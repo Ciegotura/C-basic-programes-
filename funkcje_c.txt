@@ -1,0 +1,51 @@
+    #include <stdio.h>
+    #include <stdlib.h>
+
+
+    void dodawanie(int aa, int bb);
+    void odejmowanie(int aa, int bb);
+    void mnozenie(int aa, int bb);
+    void dzielenie();
+
+    int main()
+    {
+       do{
+        printf("podaj dwie zmienne\n");
+        int aa;
+        int bb;
+        scanf("%d%d",&aa,&bb);
+        dzielenie();
+        dodawanie(aa, bb);
+        odejmowanie(aa,  bb);
+        mnozenie(aa, bb);
+        dzielenie();
+
+       }while(1);
+        return 0;
+    }
+
+    void dodawanie(int aa, int bb){
+         int wynik_dodawania;
+    wynik_dodawania = aa+bb;
+    printf("wynik dodawania= %d\n",wynik_dodawania);
+    };
+    void odejmowanie(int aa, int bb){
+    int wynik_odejmowania;
+     wynik_odejmowania = aa-bb;
+     printf("wynik odejmowania= %d\n",wynik_odejmowania);
+
+    };
+    void mnozenie(int i, int j){
+
+        int wynik_mnozenia;
+        wynik_mnozenia = i*j;
+        printf("wynik mnozenia= %d\n",wynik_mnozenia);
+
+    };
+    void dzielenie(int c, int d){
+
+        int wynik_dzielenia;
+        wynik_dzielenia = c/d;
+        printf("wynik dzielenia= %d\n",wynik_dzielenia);
+
+    };

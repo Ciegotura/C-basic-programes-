@@ -1,0 +1,69 @@
+        #include <stdio.h>
+#include <stdlib.h>
+
+float dodawanie(float pierwsza, float druga){
+   return pierwsza+druga;
+}
+float odejmowanie(float pierwsza, float druga){
+    return pierwsza - druga;
+}
+int mnozenie(int pierwsza, int druga){
+    return pierwsza*druga;
+}
+int dzielenie(int pierwsza, int druga){
+    if(druga!=0){
+    return pierwsza/druga;}else{return 0;}
+
+}
+void pokaz(int do_pokazania){
+    printf("Twoja wartosc to: %d\n",do_pokazania);
+}
+void obliczenia(float(*fck)(float,float),float pierwsza, float druga);
+
+int main()
+{
+    //typ zwracany(*nazwa wskaźnika)(argumenty);
+    float l1,l2;
+    int wybor=0;
+    int wynik;
+    int(*funkcje_dz)(int, int); //deklaracja wskaznika
+    float(*nowa_dz)(float,float);
+
+   // char znak;
+  //char znak2;
+    //scanf(" %c",&znak);
+    //scanf(" %c",&znak2);
+  //  printf("%c, %c", znak, znak2);
+    do{
+    printf("Podaj pierwsza liczbe: ");
+    scanf("%f", &l1);
+    printf("Podaj druga liczbe: ");
+    scanf("%f", &l2);
+    printf("wybierz rodzaj operacji:\n1. Dodawanie\n2. Odejmowanie\n3. mnozenie\n4. dielenie\n5. zakoncz");
+    scanf("%d", &wybor);
+    if(wybor == 1){
+        nowa_dz = dodawanie;
+
+    }else if(wybor ==2){
+        nowa_dz = odejmowanie;
+
+    }else if(wybor ==3){
+    funkcje_dz =mnozenie;
+    }else if(wybor ==4){
+    funkcje_dz =dzielenie;
+    }
+   // pokaz(funkcje_dz(l1,l2));
+    obliczenia(nowa_dz,l1,l2);
+
+    }while(wybor<5);
+    //wynik = funkcje_dz(l1,l2);
+    //printf("%d",wynik);
+    return 0;
+}
+
+void obliczenia(float(*fck)(float,float),float pierwsza, float druga){
+    float wynik;
+    wynik = fck(pierwsza, druga);
+    printf("Wynik operacji to: %.2f\n", wynik);
+
+}

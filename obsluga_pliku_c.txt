@@ -1,0 +1,47 @@
+       #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+struct osoba{
+
+    char imie[30];
+    char nazwisko[30];
+    unsigned int wiek;
+    unsigned int pesel;
+
+};
+
+int main()
+{
+    struct osoba osoby[30];
+    printf("Podaj nazwe pliku");
+    char nazwa[10];
+    char rozszerzenie[5] = ".txt";
+    scanf("%9s",nazwa);
+    printf("\n %s",nazwa);
+    //strcpy(nazwa, ".txt" );
+    FILE *wsk_plik;
+    if((wsk_plik=fopen((nazwa,rozszerzenie),"w"))==NULL){
+        puts("nie udalo sie otworzyc pliku");
+    }else{
+    puts("Podaj swoje imie, nazwisko, wiek");
+    printf("%s","?");
+    char imie[30];
+    char nazwisko[30];
+    unsigned int wiek;
+    unsigned int pesel;
+
+    scanf("%29s%29s%d",imie,nazwisko,&wiek);
+    while(!feof(stdin)){
+        fprintf(wsk_plik,"imie: %s; nazwisko %s; wiek %d",imie,nazwisko,wiek);
+        printf("%s","?");
+        scanf("%29s%29s%d",imie,nazwisko,&wiek);
+    }
+    fclose(wsk_plik);
+
+
+    }
+
+    return 0;
+}
